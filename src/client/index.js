@@ -6,6 +6,9 @@ import { Provider } from "react-redux"
 import store from "./store"
 import App from "./components/App"
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
 // render the routed application
 ReactDOM.render(
   <Provider store={store}>
