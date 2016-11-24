@@ -3,6 +3,7 @@ import path from 'path'
 import express from 'express'
 // local imports
 import { buildDir } from '../../config/projectPaths'
+import getMemes from './requestHandlers/getMemeLinks'
 
 // create Express app
 const app = express()
@@ -14,6 +15,9 @@ app.use('/static', express.static(path.join(__dirname, 'assets')))
 // use jade as templating engine
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'templates'))
+
+// meme links
+app.get('/api/memes', getMemes)
 
 app.all('*', (req, res) => {
   const resetCssLocation = '/static/styles/reset.css'

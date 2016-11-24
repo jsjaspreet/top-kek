@@ -1,7 +1,7 @@
-// third party imports
 import { combineReducers } from "redux"
+import memeLinksReducer from './memeLinksReducer'
 
 // combine and export the reducers
 export default combineReducers({
-  state: (state = null) => state
+  memeLinks: memeLinksReducer
 })
