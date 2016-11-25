@@ -9,6 +9,7 @@ class App extends Component {
 
   componentWillMount() {
     this.props.getMemeLinks()
+    this.props.getMemeThumbnails()
   }
 
   render() {

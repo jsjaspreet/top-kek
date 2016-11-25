@@ -9,7 +9,7 @@ const numCPUs = os.cpus().length;
 gulp.task('thumbnails', function () {
   gulp.src('memes/*')
     .pipe(parallel(
-      imageResize({ width: 400}),
+      imageResize({ width: 350}),
       numCPUs
     ))
     .pipe(parallel(

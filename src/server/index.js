@@ -7,6 +7,7 @@ import https from 'https'
 // local imports
 import { buildDir } from '../../config/projectPaths'
 import getMemes from './requestHandlers/getMemeLinks'
+import getMemesThumbnails from './requestHandlers/getMemeThumbnailLinks'
 
 // create Express app
 const app = express()
@@ -30,6 +31,7 @@ app.set('views', path.join(__dirname, 'templates'))
 
 // meme links
 app.get('/api/memes', getMemes)
+app.get('/api/memes-thumbnails', getMemesThumbnails)
 
 app.all('*', (req, res) => {
   const resetCssLocation = '/static/styles/reset.css'
