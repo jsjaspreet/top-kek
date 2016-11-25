@@ -9,7 +9,7 @@ export function getMemeLinks() {
     promise = axios.get(`/api/memes`)
   }
   else {
-    promise = axios.get(`https://138.68.58.61:5050/api/memes`)
+    promise = axios.get(`https://topkekkle:5050/api/memes`)
   }
   return {
     type: GET_MEME_LINKS,
