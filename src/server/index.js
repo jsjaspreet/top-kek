@@ -1,6 +1,7 @@
 // external imports
 import path from 'path'
 import express from 'express'
+import cors from 'cors'
 // local imports
 import { buildDir } from '../../config/projectPaths'
 import getMemes from './requestHandlers/getMemeLinks'
@@ -11,6 +12,8 @@ const app = express()
 // add static file handling
 app.use('/static', express.static(buildDir))
 app.use('/static', express.static(path.join(__dirname, 'assets')))
+
+app.use(cors())
 
 // use jade as templating engine
 app.set('view engine', 'pug')
