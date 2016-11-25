@@ -17,7 +17,7 @@ class NavBar extends Component {
                aria-hidden="true"></i>
         }
         {
-          pageCounter >= totalMemes ? <div/> :
+          pageCounter + 9 >= totalMemes ? <div/> :
             <i onClick={()=>this.props.increasePageCounter()}
                style={{ cursor: "pointer" }}
                className="fa fa-4x fa-arrow-right"
