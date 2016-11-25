@@ -1,13 +1,21 @@
 // external imports
 import path from 'path'
+import fs from 'fs'
 import express from 'express'
 import cors from 'cors'
+import https from 'https'
 // local imports
 import { buildDir } from '../../config/projectPaths'
 import getMemes from './requestHandlers/getMemeLinks'
 
 // create Express app
 const app = express()
+
+const isProduction = process.env.NODE_ENV === "PROD"
+const keyPath = isProduction ? "/etc/letsencrypt/live/www.topkekkle.com/privkey.pem" :
+  "/home/jsjaspreet/dev/projects/topkek/privkey.pem"
+const certPath = isProduction ? "/etc/letsencrypt/live/www.topkekkle.com/cert.pem" :
+  "/home/jsjaspreet/dev/projects/topkek/cert.pem"
 
 // add static file handling
 app.use('/static', express.static(buildDir))
@@ -18,6 +26,7 @@ app.use(cors())
 // use jade as templating engine
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'templates'))
+
 
 // meme links
 app.get('/api/memes', getMemes)
@@ -35,4 +44,8 @@ app.all('*', (req, res) => {
 const port = process.env.PORT || process.argv[2] || 5050
 
 // listen
-app.listen(port, () => console.log(`[${new Date()}] Now listening on port: ${port}`))
+https.createServer({
+  key: keyPath,
+  cert: certPath
+}, app)
+     .listen(port)

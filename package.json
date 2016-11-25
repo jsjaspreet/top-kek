@@ -47,6 +47,8 @@
     "chroma-js": "^1.2.1",
     "cors": "^2.8.1",
     "express": "^4.14.0",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
     "jade": "^1.11.0",
     "lodash": "^4.17.2",
     "material-ui": "^0.16.4",
