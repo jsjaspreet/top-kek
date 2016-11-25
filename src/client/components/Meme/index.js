@@ -3,6 +3,6 @@ import { memeStyle } from './styles'
 
 export default ({memeSrc}) => {
   return (
-    <img src={memeSrc} style={memeStyle}/>
+    <img src={memeSrc} className="animated fadeIn" style={memeStyle}/>
   )
 }
