@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { mainAppStyle } from './styles'
 import AppTitle from '../AppTitle'
+import MemeGallery from '../MemeGallery'
 import * as actions from '../../actions'
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
     return (
       <div style={mainAppStyle}>
         <AppTitle title="TOP KEKKLE"/>
+        <MemeGallery/>
       </div>
     )
   }

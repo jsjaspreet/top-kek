@@ -4,7 +4,13 @@ import {
 } from './types'
 
 export function getMemeLinks() {
-  const promise = axios.get("/api/memes")
+  let promise;
+  if(window.location.hostname.indexOf("localhost") > -1) {
+    promise = axios.get(`/api/memes`)
+  }
+  else {
+    promise = axios.get(`https://${window.location.hostname}:5050/api/memes`)
+  }
   return {
     type: GET_MEME_LINKS,
     payload: promise
