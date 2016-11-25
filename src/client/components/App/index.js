@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { mainAppStyle } from './styles'
 import AppTitle from '../AppTitle'
 import MemeGallery from '../MemeGallery'
+import NavBar from '../NavBar'
 import * as actions from '../../actions'
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
     return (
       <div style={mainAppStyle}>
         <AppTitle title="TOP KEKKLE"/>
+        <NavBar/>
         <MemeGallery/>
       </div>
     )

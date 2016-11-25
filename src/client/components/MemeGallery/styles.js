@@ -3,6 +3,8 @@ export const galleryStyle = {
   flexWrap: "wrap",
   marginTop: 50,
   alignItems: "flex-start",
+  marginRight: "auto",
+  marginLeft: "auto"
 }
 
 export const columnStyle = {
