@@ -37,6 +37,7 @@ export default class Meme extends Component {
         <Dialog
           actions={actions}
           modal={false}
+          autoScrollBodyContent={true}
           contentStyle={{
             width: '100%',
             textAlign: 'center',
