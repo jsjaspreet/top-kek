@@ -45,7 +45,7 @@ const port = process.env.PORT || process.argv[2] || 5050
 
 // listen
 https.createServer({
-  key: keyPath,
-  cert: certPath
+  key: fs.readFileSync(keyPath),
+  cert: fs.readFileSync(certPath)
 }, app)
      .listen(port)
