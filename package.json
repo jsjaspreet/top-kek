@@ -65,6 +65,7 @@
     "redux-devtools-log-monitor": "^1.1.1",
     "redux-form": "^6.2.0",
     "redux-promise": "^0.5.3",
+    "redux-responsive": "^3.2.2",
     "redux-thunk": "^2.1.0",
     "s3": "^4.4.0",
     "url-loader": "^0.5.7"

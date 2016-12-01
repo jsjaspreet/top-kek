@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import { memeStyle } from './styles'
 
-export default class Meme extends Component {
+class Meme extends Component {
   state = {
     open: false,
   };
@@ -17,8 +18,11 @@ export default class Meme extends Component {
   };
 
   render() {
-    const { memeSrc } = this.props
-    const fullSrc = memeSrc.split("-thumbnails").join("").replace("us-west-2", "us-west-1")
+    const { memeSrc, browser } = this.props
+    const showDialog = browser.width > 800
+    const fullSrc = memeSrc.split("-thumbnails")
+                           .join("")
+                           .replace("us-west-2", "us-west-1")
     const actions = [
       <FlatButton
         label="Close"
@@ -34,24 +38,36 @@ export default class Meme extends Component {
                cursor: "pointer"
              }}
              className="animated fadeIn"/>
-        <Dialog
-          actions={actions}
-          modal={false}
-          autoScrollBodyContent={true}
-          contentStyle={{
-            width: '100%',
-            textAlign: 'center',
-            position: 'absolute',
-            paddingLeft: '10%',
-            maxWidth: '90%',
-            top: 0
-          }}
-          open={this.state.open}
-          onRequestClose={this.handleClose}
-        >
-          <img src={fullSrc} className="animated fadeIn"/>
-        </Dialog>
+        {
+          showDialog ?
+            <Dialog
+              actions={actions}
+              modal={false}
+              autoScrollBodyContent={true}
+              contentStyle={{
+                width: '100%',
+                textAlign: 'center',
+                position: 'absolute',
+                paddingLeft: '10%',
+                maxWidth: '90%',
+                top: 0
+              }}
+              open={this.state.open}
+              onRequestClose={this.handleClose}
+            >
+              <img src={fullSrc} className="animated fadeIn"/>
+            </Dialog>
+            : null
+        }
       </div>
     )
   }
 }
+
+function mapStateToProps({ browser }) {
+  return {
+    browser
+  }
+}
+
+export default connect(mapStateToProps)(Meme)

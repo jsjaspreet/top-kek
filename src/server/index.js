@@ -45,9 +45,13 @@ app.all('*', (req, res) => {
 // grab port
 const port = process.env.PORT || process.argv[2] || 5050
 
+console.log("Listening on 5050")
+
 // listen
 https.createServer({
   key: fs.readFileSync(keyPath),
   cert: fs.readFileSync(certPath)
 }, app)
      .listen(port)
+
+

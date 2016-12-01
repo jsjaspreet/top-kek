@@ -1,7 +1,7 @@
 export const titleStyle = {
   fontFamily: "'Bungee Shade', cursive",
-  fontSize: 90,
+  fontSize: 70,
+  lineHeight: 1,
   marginTop: 50,
-  marginLeft: 'auto',
-  marginRight: 'auto',
+  textAlign: 'center'
 }

@@ -9,5 +9,7 @@ export const galleryStyle = {
 
 export const columnStyle = {
   display: "flex",
+  marginLeft: "auto",
+  marginRight: "auto",
   flexDirection: "column"
 }
